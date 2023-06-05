@@ -2,24 +2,25 @@ import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 /* import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"; */
-
+import axios from "axios"; 
 
 export default function AdminPage() {
 
 const {action} = useParams();
 //*console.log(action); 
 
-const[title, setTitle] = useState("");
-const[address, setAddress] = useState("");
+const [title, setTitle] = useState("");
+const [address, setAddress] = useState("");
 /* const[date, setDate] = useState(new Date()); */
 const [date, setDate] = useState(""); //! o (new Date())
 const [hour, setHour] = useState("");
 const [maxCapacity, setMaxCapacity] = useState(""); 
 const [description, SetDescription] = useState(""); 
+const [redirect, setRedirect] = useState(""); 
 //!imagenes
-const[fileInputState, setFileInputState] = useState("");
-const[selectedFile, setSelectedFile] = useState("");
-const[previewSources, setPreviewSources] = useState([]);
+const [fileInputState, setFileInputState] = useState("");
+const [previewSources, setPreviewSources] = useState([]);
+
 
 
 
@@ -62,6 +63,18 @@ const uploadImage = async (base64EncodedImage) => {
     }
 }
 
+
+async function addNewEvent (e) {
+    e.preventDefault();
+   await axios.post("/events", {
+        title, address, date, 
+        hour, maxCapacity, description, 
+        previewSources
+    });
+
+}
+
+
 //! pujar input multiple
 
     return(
@@ -78,7 +91,7 @@ const uploadImage = async (base64EncodedImage) => {
             )}
             {action === "create" && (
                 <div>
-                    <form onSubmit={handleSubmitFile}>
+                    <form onSubmit={handleSubmitFile && addNewEvent}>
                         <h2 className="text-2xl mt-4">Title</h2>
                             <p className="text-gray-500 text-sm">Title of the event. Should be short and catchy as in advertisement</p>
                             <input type="text" 
