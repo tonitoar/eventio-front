@@ -50,7 +50,7 @@ const handleSubmitFile = (e) => {
 //! Base64 encoding is a way to encode binary data in ASCII text. It's primarily used to store or transfer images, audio files, and other media online. It is also often used when there are limitations on the characters that can be used in a filename for various reasons.
 
 const uploadImage = async (base64EncodedImage) => {
-    console.log(base64EncodedImage);
+   console.log(base64EncodedImage);
     try {
         await fetch ("http://localhost:3000/api/upload", {
             method: "POST",
@@ -111,7 +111,7 @@ const uploadImage = async (base64EncodedImage) => {
                             <p className="text-gray-500 text-sm">Description of the event</p>
                             <textarea  value={description} onChange={(e)=>SetDescription(e.target.value)}/>  {/* //! area de text */}
                         <h2 className="text-2xl mt-4">Photos</h2>
-                            <p className="text-gray-500 text-sm">Photos of the event/location </p>
+                            <p className="text-gray-500 text-sm">Photos of the event/location. Max 4. </p>
                             <div className="flex gap-2 mt-2">
                                 <input type="file" 
                                         name="image"
@@ -121,19 +121,11 @@ const uploadImage = async (base64EncodedImage) => {
                             </div>
                             <div className="flex mt-2 gap-2">
                             {previewSources && previewSources.map((previewSource, index) => (
-                                <img  key={index} src={previewSource} alt="chosen" style={{ height: "200px" }} />
+                                <img  className="rounded-2xl" key={index} src={previewSource} alt="chosen" style={{ height: "200px" }} />
                             ))}
                             </div>
-                         {/*    <div className="mt-2 grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-                                <button  type="submit" className="flex gap-1 justify-center border bg-transparent rounded-2xl p-8 text-2xl text-gray-600">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
-                                    </svg>
-                                    Upload 
-                                </button>
-                        </div> */}
                         <div>
-                            <button className="primary my-4 flex gap-1 justify-center p-8 text-2xl" type="submit">
+                            <button className="cursor-pointer primary my-4 flex gap-1 justify-center p-8 text-2xl" type="submit">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
                             </svg>
