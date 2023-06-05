@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, Navigate, useParams } from "react-router-dom";
 /* import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"; */
 import axios from "axios"; 
@@ -15,14 +15,18 @@ const [address, setAddress] = useState("");
 const [date, setDate] = useState(""); //! o (new Date())
 const [hour, setHour] = useState("");
 const [maxCapacity, setMaxCapacity] = useState(""); 
-const [description, SetDescription] = useState(""); 
+const [description, setDescription] = useState(""); 
 const [redirect, setRedirect] = useState(""); 
 //!imagenes
 const [fileInputState, setFileInputState] = useState("");
 const [previewSources, setPreviewSources] = useState([]);
 
 
-
+const handleForSubmit = (e) => {
+    e.preventDefault(); 
+    handleSubmitFile(e);
+    addNewEvent(e);
+};
 
 const handleFileInputChange = (e) => {
     const files = e.target.files;
@@ -66,12 +70,16 @@ const uploadImage = async (base64EncodedImage) => {
 
 async function addNewEvent (e) {
     e.preventDefault();
-   await axios.post("/events", {
+   await axios.post("http://localhost:3000/events", {
         title, address, date, 
-        hour, maxCapacity, description, 
-        previewSources
+        hour, maxCapacity, description
+        //previewSources
     });
+    setRedirect("/account/events"); 
+}
 
+if (redirect) {
+    return <Navigate to={redirect} /> 
 }
 
 
@@ -91,7 +99,7 @@ async function addNewEvent (e) {
             )}
             {action === "create" && (
                 <div>
-                    <form onSubmit={handleSubmitFile && addNewEvent}>
+                    <form onSubmit={handleForSubmit}>
                         <h2 className="text-2xl mt-4">Title</h2>
                             <p className="text-gray-500 text-sm">Title of the event. Should be short and catchy as in advertisement</p>
                             <input type="text" 
@@ -122,7 +130,7 @@ async function addNewEvent (e) {
                                     onChange={(e)=>setMaxCapacity(e.target.value)}/>
                         <h2 className="text-2xl mt-4">Description</h2>
                             <p className="text-gray-500 text-sm">Description of the event</p>
-                            <textarea  value={description} onChange={(e)=>SetDescription(e.target.value)}/>  {/* //! area de text */}
+                            <textarea  value={description} onChange={(e)=>setDescription(e.target.value)}/>  {/* //! area de text */}
                         <h2 className="text-2xl mt-4">Photos</h2>
                             <p className="text-gray-500 text-sm">Photos of the event/location. Max 4. </p>
                             <div className="flex gap-2 mt-2">

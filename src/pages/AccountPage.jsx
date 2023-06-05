@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { userContext } from "../contexts/user.context";
 import { Link, Navigate, useParams } from "react-router-dom";
 
@@ -12,6 +12,7 @@ export default function AccountPage () {
     //*console.log(user)
 
     const [redirect, setRedirect] = useState(null); 
+
 
     let {subpage} = useParams(); //! LET perque canviarem el "undefined" Profile cap a "profile" i menys codi per el LinkClasses
    //*console.log(subpage);
@@ -45,7 +46,9 @@ function linkClasses (type=null) {
 //TODO *** => profile canvia perque es "undefind", per lo tant hem de afegir (...|| (subpage === undefined && type === "profile"))
 
 
+
 async function logout() {
+    localStorage.removeItem("token");
     await axios.post("/logout")
     setRedirect("/");
     setUser(null); //! primer redirect, despres borrar dades usuari
