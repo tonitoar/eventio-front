@@ -18,7 +18,7 @@ const [maxCapacity, setMaxCapacity] = useState("");
 const [description, setDescription] = useState(""); 
 const [redirect, setRedirect] = useState(""); 
 //!imagenes
-const [fileInputState, setFileInputState] = useState("");
+const [fileInputState, setFileInputState] = useState(null);
 const [previewSources, setPreviewSources] = useState([]);
 
 
@@ -55,33 +55,72 @@ const handleSubmitFile = (e) => {
 //! Base64 encoding is a way to encode binary data in ASCII text. It's primarily used to store or transfer images, audio files, and other media online. It is also often used when there are limitations on the characters that can be used in a filename for various reasons.
 
 const uploadImage = async (base64EncodedImage) => {
-   //console.log(base64EncodedImage);
+   console.log(base64EncodedImage);
+   const token = localStorage.getItem("token");
     try {
         await fetch ("http://localhost:3000/api/upload", {
             method: "POST",
             body: JSON.stringify({data: base64EncodedImage}),
-            headers: {"Content-type": "application/json"}
-        })
+            headers: {
+                "Content-type": "application/json",
+                Authorization: `Bearer ${token}`,
+            },
+        });
     } catch (error) {
         console.log(error)
     }
 }
 
 
-async function addNewEvent (e) {
+/* async function addNewEvent (e) {
     e.preventDefault();
    await axios.post("http://localhost:3000/events", {
         title, address, date, 
-        hour, maxCapacity, description
-        //previewSources
+        hour, maxCapacity, description,
+        previewSources
     });
     setRedirect("/account/events"); 
-}
+} */
+
+async function addNewEvent(e) {
+    e.preventDefault();
+    const token = localStorage.getItem("token");
+    try {
+      const response = await fetch("http://localhost:3000/events", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          title,
+          address,
+          date,
+          hour,
+          maxCapacity,
+          description,
+          previewSources,
+        }),
+      });
+  
+      if (response.ok) {
+        setRedirect("/account/events");
+      } else {
+        console.log("Error:", response.statusText);
+        // Handle the error case if needed
+      }
+    } catch (error) {
+      console.log(error);
+      // Handle the error case if needed
+    }
+  }
 
 if (redirect) {
     return <Navigate to={redirect} /> 
 }
 
+
+  
 
 //! pujar input multiple
 
