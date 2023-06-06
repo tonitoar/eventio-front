@@ -99,7 +99,6 @@ async function addNewEvent(e) {
           hour,
           maxCapacity,
           description,
-          previewSources,
         }),
       });
   
