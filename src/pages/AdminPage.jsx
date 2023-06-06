@@ -1,8 +1,5 @@
 import { useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
-/* import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css"; */
-import axios from "axios"; 
 
 export default function AdminPage() {
 
@@ -18,7 +15,7 @@ const [maxCapacity, setMaxCapacity] = useState("");
 const [description, setDescription] = useState(""); 
 const [redirect, setRedirect] = useState(""); 
 //!imagenes
-const [fileInputState, setFileInputState] = useState(null);
+const [fileInputState] = useState("");
 const [previewSources, setPreviewSources] = useState([]);
 
 
@@ -55,12 +52,12 @@ const handleSubmitFile = (e) => {
 //! Base64 encoding is a way to encode binary data in ASCII text. It's primarily used to store or transfer images, audio files, and other media online. It is also often used when there are limitations on the characters that can be used in a filename for various reasons.
 
 const uploadImage = async (base64EncodedImage) => {
-   console.log(base64EncodedImage);
+  // console.log(base64EncodedImage);
    const token = localStorage.getItem("token");
     try {
         await fetch ("http://localhost:3000/api/upload", {
             method: "POST",
-            body: JSON.stringify({data: base64EncodedImage}),
+            body: JSON.stringify({ data: base64EncodedImage, title: title }),
             headers: {
                 "Content-type": "application/json",
                 Authorization: `Bearer ${token}`,
