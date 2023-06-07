@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { userContext } from "../contexts/user.context";
+import PropTypes from "prop-types"
 
 //imagenes
 import Logo from "/src/images/logo.png"
@@ -12,7 +13,7 @@ export default function Header({ background }) {
 
     return(
         <div>
-      <header className={`flex justify-between rounded py-2 px-2 ${background}`}>
+      <header className={`flex justify-between rounded py-8 px-8 ${background} `}>
             <Link to={"/"} className="flex items-center gap-1 ">
                 <img className="w-40" src={Logo}/>
             </Link>
@@ -46,4 +47,8 @@ export default function Header({ background }) {
       </header>
     </div>
     );
+}
+
+Header.PropTypes = {
+    background: PropTypes.string.isRequired,
 }

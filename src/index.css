@@ -2,39 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-input[type="text"], input[type="password"], input[type="email"], input[type="date"], input[type="number"], 
-input[type="time"], textarea {
-    @apply w-full border my-1 py-2 px-3 rounded-2xl;
+.input-wrapper {
+  position: relative;
+  z-index: 10; /* Set a higher z-index to make the inputs appear above the background */
 }
-textarea{
-    height: 140px;
+
+.input-wrapper input[type="text"],
+.input-wrapper input[type="password"],
+.input-wrapper input[type="email"],
+.input-wrapper input[type="date"],
+.input-wrapper input[type="number"],
+.input-wrapper input[type="time"],
+.input-wrapper textarea {
+  width: 100%;
+  border: none;
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
 }
+
+.input-wrapper textarea {
+  height: 140px;
+}
+
 button {
-    @apply bg-gray-300;
+  @apply bg-gray-300;
 }
+
 button.primary {
-    background-color: "#F5385D";
-    @apply bg-primary p-2 w-full text-black rounded-2xl ;
+  background-color: "#F5385D";
+  @apply bg-primary p-2 w-full text-black rounded-2xl ;
 }
 
 .bg-custom-image1 {
-    background-image: url("../public/photoBack/Asset_5.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0.75;
-    backdrop-filter: blur(30px)
+  background-image: url("../public/photoBack/Asset_5.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.75;
+  backdrop-filter: blur(30px);
+}
 
-  }
-
-  .bg-custom-image2 {
-    background-image: url("../public/photoBack/Asset_5.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-
-
-  }
+.bg-custom-image2 {
+  background-image: url("../public/photoBack/Asset_5.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
 
 
