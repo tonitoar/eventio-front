@@ -50,19 +50,19 @@ export default function AdminPage() {
                         Add new event
                     </Link> 
                 </div>
-                <div className="mt-4">
+                <div className="my-10 mx-80">
                     {events.length > 0 && events.map ((event, index) => (
-                        <div className="flex cursor-pointer gap-4 bg-gray-100 p-4 rounded-2xl" key={index}>
-                            <div className="w-32 h-32 bg-gray-300 grow shrink-0">
+                        <Link to={"/account/admin/events/" + event._id } className="flex cursor-pointer gap-4 bg-gray-100 p-4 rounded-2xl mb-6" key={index}>
+                            <div className=" flex h-32 w-32 bg-gray-300 shrink-0">
                                 {event.photos.length > 0 && (
-                                    <img src={event.photos[0]} alt="" />
+                                    <img className="object-cover" src={event.photos[0]} alt="" />
                                 )}
                             </div>
                             <div className="grow-0 shrink">
-                            <h2 className="text-xl">{event.title}</h2>
-                            <p className="text-sm mt-2">{event.description}</p>
-                        </div>
-                    </div>
+                                <h2 className="text-xl">{event.title}</h2>
+                                <p className="text-sm mt-2">{event.description}</p>
+                            </div>
+                        </Link>
                     ))}
                 </div>
         </div>
