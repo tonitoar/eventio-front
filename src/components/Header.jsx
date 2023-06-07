@@ -13,7 +13,7 @@ export default function Header() {
 
     return(
         <div>
-      <header className={`flex justify-between rounded py-8 px-8  `}>
+      <header className={`flex justify-between rounded py-8 px-8 `}>
             <Link to={"/"} className="flex items-center gap-1 ">
                 <img className="w-40" src={Logo}/>
             </Link>
