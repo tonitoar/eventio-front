@@ -6,7 +6,9 @@ import IndexPage from "./pages/IndexPage";
 import LoginPage from "./pages/LoginPage";
 import Layout from "./components/Layout";
 import RegisterPage from "./pages/RegisterPage";
-import AccountPage from "./pages/AccountPage";
+import AdminPage from "./pages/AdminPage";
+import ProfilePage from "./pages/ProfilePage";
+import CreateEventPage from "./pages/CreateEventPage";
 
 import axios from "axios"; 
 import DisplayImage from "../DisplayImage";
@@ -25,8 +27,9 @@ function App() {
             <Route index element={<IndexPage />} />
             <Route path="/register" element={<RegisterPage />} />  
             <Route path="/login" element={<LoginPage />} />  
-            <Route path="/account/:subpage?" element={<AccountPage />} /> {/* //! subpage --> events and admin */}
-            <Route path="/account/:subpage/:action" element={<AccountPage />} /> {/* //! no admin/evenet/create ---> admin/create */}
+            <Route path="/account" element={<ProfilePage />} /> 
+            <Route path="/account/admin" element={<AdminPage />} /> 
+            <Route path="/account/admin/create" element={<CreateEventPage />} />
           </Route>
       </Routes>
     </UserContextProvider>
