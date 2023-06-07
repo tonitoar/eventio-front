@@ -17,21 +17,4 @@ button.primary {
     @apply bg-primary p-2 w-full text-black rounded-2xl ;
 }
 
-.bg-custom-image1 {
-    background-image: url("/photoBack/Asset_5.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0.75;
-    backdrop-filter: blur(30px)
 
-  }
-
-  .bg-custom-image2 {
-    background-image: url("/photoBack/Asset_5.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-
-
-  }
