@@ -24,12 +24,13 @@ function App() {
       <Routes>
           <Route path="/" element={<Layout />}> 
             <Route path="/images" element={<DisplayImage />} />  {/* //! comprobar display images from cludinary, borrar al final  */}
-            <Route index element={<IndexPage />} />
+            <Route   element={<IndexPage className="bg-custom-image1"/>} />
             <Route path="/register" element={<RegisterPage />} />  
             <Route path="/login" element={<LoginPage />} />  
             <Route path="/account" element={<ProfilePage />} /> 
             <Route path="/account/admin" element={<AdminPage />} /> 
             <Route path="/account/admin/create" element={<CreateEventPage />} />
+            <Route path="/account/admin/events/:id" element={<CreateEventPage />} />
           </Route>
       </Routes>
     </UserContextProvider>

@@ -1,11 +1,12 @@
-import { Outlet } from "react-router-dom";
+// import { Outlet } from "react-router-dom";
 import Header from "./Header";
+import OutletWrapper from "./OutletWrapper";
 
  export default function Layout () {
     return(
         <div className="p-4 flex flex-col min-h-screen">
-            <Header />
-            <Outlet />
+            <Header background="bg-custom-image2"/>
+            <OutletWrapper />
         </div>
     );
  }
