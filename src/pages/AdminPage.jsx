@@ -40,7 +40,7 @@ export default function AdminPage() {
   
 
     return(
-        <div>      
+        <div className="">      
             <AccountNav />
                 <div className="text-center">
                     <Link className="inline-flex gap-1 bg-primary text-black py-2 px-6 rounded-full" to={"/account/admin/create"}> 

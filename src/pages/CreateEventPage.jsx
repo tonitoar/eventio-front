@@ -166,8 +166,8 @@ export default function CreateEventPage() {
     <div>
       <AccountNav />
       <form onSubmit={handleForSubmit} className="mx-80">
-        <h2 className="text-2xl mt-4 text-yellow-500 ">Title</h2>
-        <p className="text-yellow-500 text-sm">
+        <h2 className="text-2xl mt-4 text-slate-200 ">Title</h2>
+        <p className="text-primary text-sm">
           Title of the event. Should be short and catchy as in advertisement
         </p>
         <input
@@ -177,16 +177,16 @@ export default function CreateEventPage() {
           onChange={(e) => setTitle(e.target.value)}
           required
         />
-        <h2 className="text-2xl mt-4">Date</h2>
-        <p className="text-gray-500 text-sm">Date of event</p>
+        <h2 className="text-2xl mt-4 text-slate-200">Date</h2>
+        <p className="text-primary text-sm">Date of event</p>
         <input
           type="date"
           value={date}
           onChange={(e) => setDate(e.target.value)}
           required
         />
-        <h2 className="text-2xl mt-4">Hour</h2>
-        <p className="text-gray-500 text-sm">Hour of event</p>
+        <h2 className="text-2xl mt-4 text-slate-200">Hour</h2>
+        <p className="text-primary text-sm">Hour of event</p>
         <input
           type="time"
           value={hour}
@@ -194,8 +194,8 @@ export default function CreateEventPage() {
           required
         />{" "}
         {/* //! ficar AM o PM */}
-        <h2 className="text-2xl mt-4">Address</h2>
-        <p className="text-gray-500 text-sm">Addres of the event</p>
+        <h2 className="text-2xl mt-4 text-slate-200">Address</h2>
+        <p className="text-primary text-sm">Addres of the event</p>
         <input
           type="text"
           placeholder="address"
@@ -203,23 +203,23 @@ export default function CreateEventPage() {
           onChange={(e) => setAddress(e.target.value)}
           required
         />
-        <h2 className="text-2xl mt-4">Maximum capacity</h2>
-        <p className="text-gray-500 text-sm">Maximum capacity of the event</p>
+        <h2 className="text-2xl mt-4 text-slate-200">Maximum capacity</h2>
+        <p className="text-primary text-sm">Maximum capacity of the event</p>
         <input
           type="number"
           value={maxCapacity}
           onChange={(e) => setMaxCapacity(e.target.value)}
           required
         />
-        <h2 className="text-2xl mt-4">Description</h2>
-        <p className="text-gray-500 text-sm">Description of the event</p>
+        <h2 className="text-2xl mt-4 text-slate-200">Description</h2>
+        <p className="text-primary text-sm">Description of the event</p>
         <textarea
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           required
         />{" "}
-        <h2 className="text-2xl mt-4">Price</h2>
-        <p className="text-gray-500 text-sm">Price of the event</p>
+        <h2 className="text-2xl mt-4 text-slate-200">Price</h2>
+        <p className="text-primary text-sm">Price of the event</p>
         <input
           type="number"
           value={price}
@@ -227,8 +227,8 @@ export default function CreateEventPage() {
           required
         />
         {/* //! area de text */}
-        <h2 className="text-2xl mt-4">Photos</h2>
-        <p className="text-gray-500 text-sm">
+        <h2 className="text-2xl mt-4 text-slate-200">Photos</h2>
+        <p className="text-primary text-sm">
           Photos of the event/location. Max 4.{" "}
         </p>
         <div className="flex gap-2 mt-2">
