@@ -23,7 +23,7 @@ export default function CreateEventPage() {
     if (!id) {
       return;
     }
-    axios.get("/events/" + id).then((response) => {
+    axios.get("/event/" + id).then((response) => {
       const { data } = response;
       setTitle(data.title);
       setDate(data.date);
@@ -41,7 +41,7 @@ export default function CreateEventPage() {
       // update
       const token = localStorage.getItem("token");
       try {
-        await fetch(`http://localhost:3000/events/`+id, {
+        await fetch(`http://localhost:3000/event/`+id, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',

@@ -13,7 +13,7 @@ export default function AdminPage() {
         const fetchEvents = async () => {
           const token = localStorage.getItem('token');
           try {
-            const response = await fetch("http://localhost:3000/admin/events", {
+            const response = await fetch("http://localhost:3000/admin/event", {
               headers: {
                 Authorization: `Bearer ${token}`,
                 "Content-Type": "application/json",
@@ -52,7 +52,7 @@ export default function AdminPage() {
                 </div>
                 <div className="my-10 mx-80">
                     {events.length > 0 && events.map ((event, index) => (
-                        <Link to={"/account/admin/events/" + event._id } className="flex cursor-pointer gap-4 bg-gray-100 p-4 rounded-2xl mb-6" key={index}>
+                        <Link to={"/account/admin/event/" + event._id } className="flex cursor-pointer gap-4 bg-gray-100 p-4 rounded-2xl mb-6" key={index}>
                             <div className=" flex h-32 w-32 bg-gray-300 shrink-0">
                                 {event.photos.length > 0 && (
                                     <img className="object-cover" src={event.photos[0]} alt="" />
