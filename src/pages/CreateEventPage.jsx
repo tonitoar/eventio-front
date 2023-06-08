@@ -57,6 +57,7 @@ export default function CreateEventPage() {
             description,
           }),
         });
+      setRedirectToEventsList("true");
       } catch (error) {
         console.log(error);
       }

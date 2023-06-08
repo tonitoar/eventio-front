@@ -13,7 +13,7 @@ export default function AdminPage() {
         const fetchEvents = async () => {
           const token = localStorage.getItem('token');
           try {
-            const response = await fetch("http://localhost:3000/events", {
+            const response = await fetch("http://localhost:3000/admin/events", {
               headers: {
                 Authorization: `Bearer ${token}`,
                 "Content-Type": "application/json",

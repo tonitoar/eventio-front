@@ -24,7 +24,8 @@ function App() {
       <Routes>
           <Route path="/" element={<Layout />}> 
             <Route path="/images" element={<DisplayImage />} />  {/* //! comprobar display images from cludinary, borrar al final  */}
-            <Route   element={<IndexPage className="bg-custom-image1"/>} />
+            <Route path="/"  element={<IndexPage/>} />
+            <Route path="/"  element={<IndexPage/>} />
             <Route path="/register" element={<RegisterPage />} />  
             <Route path="/login" element={<LoginPage />} />  
             <Route path="/account" element={<ProfilePage />} /> 
