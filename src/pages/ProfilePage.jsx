@@ -6,6 +6,7 @@ import axios from "axios";
 
 import AdminPage from "./AdminPage";
 import AccountNav from "../components/AccountNav";
+// import { useEffect } from "react";
 
 export default function ProfilePage () {
 
@@ -17,6 +18,10 @@ export default function ProfilePage () {
 
     let {subpage} = useParams(); //! LET perque canviarem el "undefined" Profile cap a "profile" i menys codi per el LinkClasses
    //*console.log(subpage);
+
+/*    useEffect(() => {
+    console.log(ready)
+  }, [ready]); */
 
    
    if (!ready) {

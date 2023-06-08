@@ -14,7 +14,8 @@ export function UserContextProvider({ children }) {
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
       axios.get("/profile").then(({ data }) => {
         setUser(data);
-        setReady(true); 
+        setReady(true);
+        //console.log("ready canvi") 
       });
     }
   }, []);
