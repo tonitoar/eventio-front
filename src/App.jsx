@@ -12,6 +12,7 @@ import CreateEventPage from "./pages/CreateEventPage";
 
 import axios from "axios"; 
 import DisplayImage from "../DisplayImage";
+import EventPage from "./pages/EventPage";
 
 axios.defaults.baseURL = "http://localhost:3000";
 //axios.defaults.withCredentials = true; 
@@ -25,7 +26,7 @@ function App() {
           <Route path="/" element={<Layout />}> 
             <Route path="/images" element={<DisplayImage />} />  {/* //! comprobar display images from cludinary, borrar al final  */}
             <Route path="/"  element={<IndexPage/>} />
-            <Route path="/"  element={<IndexPage/>} />
+            <Route path="/event/:id"  element={<EventPage />} />
             <Route path="/register" element={<RegisterPage />} />  
             <Route path="/login" element={<LoginPage />} />  
             <Route path="/account" element={<ProfilePage />} /> 

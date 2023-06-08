@@ -14,6 +14,7 @@ export default function CreateEventPage() {
   const [hour, setHour] = useState("");
   const [maxCapacity, setMaxCapacity] = useState("");
   const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
   const [redirectToEventsList, setRedirectToEventsList] = useState(false);
   //!imagenes
   const [fileInputState] = useState("");
@@ -32,6 +33,7 @@ export default function CreateEventPage() {
       setDescription(data.description);
       setMaxCapacity(data.maxCapacity);
       setPreviewSources(data.photos);
+      setPrice(data.price)
     });
   }, [id]);
 
@@ -55,6 +57,7 @@ export default function CreateEventPage() {
             hour,
             maxCapacity,
             description,
+            price
           }),
         });
       setRedirectToEventsList("true");
@@ -137,6 +140,7 @@ export default function CreateEventPage() {
           hour,
           maxCapacity,
           description,
+          price
         }),
       });
 
@@ -214,6 +218,14 @@ export default function CreateEventPage() {
           onChange={(e) => setDescription(e.target.value)}
           required
         />{" "}
+        <h2 className="text-2xl mt-4">Price</h2>
+        <p className="text-gray-500 text-sm">Price of the event</p>
+        <input
+          type="number"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+          required
+        />
         {/* //! area de text */}
         <h2 className="text-2xl mt-4">Photos</h2>
         <p className="text-gray-500 text-sm">

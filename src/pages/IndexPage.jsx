@@ -11,7 +11,7 @@ export default function IndexPage() {
     const fetchEvents = async () => {
       try {
         const response = await axios.get('http://localhost:3000/events');
-        setEvents(response.data);
+        setEvents([...response.data, ...response.data, ...response.data]);
       } catch (error) {
         console.log('Error fetching events data:', error);
       }
@@ -21,19 +21,22 @@ export default function IndexPage() {
   }, []);
 
   return (
-    <div>
+    <div className="mt-20 grid gap-x-6 gap-y-14 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
       {events.length > 0 && events.map((event) => (
-        <Link to={"/event/" + event._id} className="flex cursor-pointer gap-4 bg-gray-100 p-4 rounded-2xl mb-6" key={event._id}>
-          <div className="flex h-32 w-32 bg-gray-300 shrink-0">
+        <Link to={"/event/" + event._id} className="" key={event._id}>
+          <div className="bg-gray-500 mb-2 rounded-2xl flex w-96">
             {event.photos.length > 0 && (
-              <img className="object-cover" src={event.photos[0]} alt="" />
+              <img className="rounded-2xl object-cover aspect-square" src={event.photos[0]} alt="" />
             )}
           </div>
-          <div className="grow-0 shrink">
-            <h2 className="text-xl">{event.title}</h2>
-            <p className="text-sm mt-2">Location: {event.address}</p>
-            <p className="text-sm mt-2">Dia: {event.date}</p>
-            <p className="text-sm mt-2">Hora: {event.hour}</p>
+          <div className="">
+            <h2 className="font-bold">{event.title}</h2>
+            <h3 className="text-sm text-gray-500">{event.address}</h3>
+            <p className="">Day: {event.date}</p>
+            <p className="">Hour: {event.hour}</p>
+            <div className="mt-1">
+              <span className="font-bold ">{event.price}€</span> per ticket
+            </div>
           </div>
         </Link>
       ))}
