@@ -11,8 +11,12 @@ import ProfilePage from "./pages/ProfilePage";
 import CreateEventPage from "./pages/CreateEventPage";
 
 import axios from "axios"; 
-import DisplayImage from "../DisplayImage";
+
 import EventPage from "./pages/EventPage";
+import CardPage from "./pages/CardPage";
+
+
+
 
 axios.defaults.baseURL = "http://localhost:3000";
 //axios.defaults.withCredentials = true; 
@@ -24,8 +28,8 @@ function App() {
     <UserContextProvider>
       <Routes>
           <Route path="/" element={<Layout />}> 
-            <Route path="/images" element={<DisplayImage />} />  {/* //! comprobar display images from cludinary, borrar al final  */}
             <Route path="/"  element={<IndexPage/>} />
+            <Route path="/card"  element={<CardPage/>} />
             <Route path="/event/:id"  element={<EventPage />} />
             <Route path="/register" element={<RegisterPage />} />  
             <Route path="/login" element={<LoginPage />} />  
