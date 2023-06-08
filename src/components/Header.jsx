@@ -12,7 +12,7 @@ export default function Header() {
    const {user} = useContext(userContext);
 
     return(
-        <div id="Nav" className="bg-black rounded-2xl bg-opacity-50">
+        <div id="Nav" className="bg-slate-900 rounded-2xl">
       <header className="flex justify-between rounded py-8 px-8" >
             <Link to={"/"} className="flex items-center gap-1 ">
                 <img className="w-40 " src={Logo}/>
