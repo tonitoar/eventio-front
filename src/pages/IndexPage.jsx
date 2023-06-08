@@ -1,16 +1,19 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
 export default function IndexPage() {
-  // Define the state for storing events data
+  // definimos los datos de eventos obtenidos
   const [events, setEvents] = useState([]);
 
-  // Fetch events data from the API endpoint
+  // para obtener datos de eventos
   useEffect(() => {
+    // Función para fetch
     const fetchEvents = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/events');
+        // GET request al endpoint
+        const response = await axios.get('http://localhost:3000/events'); 
+
+        // Guarda la información de los eventos
         setEvents(response.data);
       } catch (error) {
         console.log('Error fetching events data:', error);
