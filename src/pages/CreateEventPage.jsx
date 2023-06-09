@@ -263,7 +263,7 @@ export default function CreateEventPage() {
         </div>
         <div>
           <button
-            className="cursor-pointer primary my-4 flex gap-1 justify-center p-8 text-2xl hover:bg-violet-400 "
+            className="cursor-pointer primary my-4 flex gap-1 justify-center p-8 text-2xl hover:bg-slate-300 "
             type="submit"
           >
             <svg
