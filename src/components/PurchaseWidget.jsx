@@ -55,7 +55,7 @@ export default function PurchaseWidget({ event }) {
         <div className="my-4 bg-lime-200 px-3 py-4 rounded-2xl">
           <label>Quantity:</label>
           <div className="">
-            <input type="number" value={counter} className="" readOnly />
+            <input type="number" value={counter} className="" />
             <div className="flex justify-center gap-8 mt-2">
               <button
                 className="px-2 py-1 bg-gray-300 rounded-full w-8 h-8"
