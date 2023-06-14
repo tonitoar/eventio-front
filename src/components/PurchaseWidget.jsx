@@ -5,7 +5,7 @@ export default function PurchaseWidget({ event }) {
 
   const { id } = useParams();
   
-  const [counter, setCounter] = useState(0);
+  const [counter, setCounter] = useState(1);
 
   const handleIncrement = () => {
     setCounter(counter + 1);
@@ -37,7 +37,7 @@ export default function PurchaseWidget({ event }) {
       if (response.ok) {
         console.log("Form submitted successfully");
         // Reset the counter if needed
-        setCounter(0);
+        /* setCounter(0); */
       } else {
         console.log("Form submission failed");
       }
