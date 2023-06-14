@@ -13,7 +13,6 @@ import CreateEventPage from "./pages/CreateEventPage";
 import axios from "axios"; 
 
 import EventPage from "./pages/EventPage";
-import CardPage from "./pages/CardPage";
 import UserEvents from "./pages/UserEvents";
 
 
@@ -30,7 +29,6 @@ function App() {
       <Routes>
           <Route path="/" element={<Layout />}> 
             <Route path="/"  element={<IndexPage/>} />
-            <Route path="/card"  element={<CardPage/>} />
             <Route path="/event/:id"  element={<EventPage />} />
             <Route path="/register" element={<RegisterPage />} />  
             <Route path="/login" element={<LoginPage />} />  

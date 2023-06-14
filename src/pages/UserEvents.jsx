@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+
 export default function UserEvents () {
 
     const [userEvent, setUserEvent] = useState([]);
@@ -18,7 +19,7 @@ export default function UserEvents () {
             //console.log(response)
             if (response.ok) {
               const data = await response.json();
-             console.log("DATA", data)
+            console.log("DATA", data)
               setUserEvent(data);
             } else {
               const errorData = await response.json();
@@ -36,21 +37,24 @@ export default function UserEvents () {
   
 
     return(
-                <div className="my-10 mx-80">
-                    {userEvent.length > 0 && userEvent.map ((purchase, index) => (
-                        <Link to={"/event/" + purchase._id } className="flex cursor-pointer gap-4 bg-gray-100 p-4 rounded-2xl mb-6" key={index}>
-                            <div className=" flex h-32 w-32 bg-gray-300 shrink-0">
-                            {/*     {userEvent.photos.length > 0 && (
-                                    <img className="object-cover" src={userEvent.photos[0]} alt="" />
-                                )} */}
-                            </div>
-                            <div className="grow-0 shrink">
-                                <h2 className="text-xl">{userEvent.title}</h2>
-                                <p className="text-sm mt-2">{userEvent.description}</p>
-                            </div>
-                        </Link>
-                    ))}
-                </div>
+      <div className="mt-20 grid gap-x-6 gap-y-14 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+      {userEvent.length > 0 &&
+        userEvent.map((purchase, index) => (
+          <div className="flex cursor-pointer gap-4 bg-gray-100 p-4 rounded-2xl mb-6 w-64" key={index}>
+            <div className="grow-0 shrink">
+            <div>
+            <Link to={"/event/"+ purchase.event}>
+              <img className="rounded object-cover aspect-square mx-auto mb-2" src={purchase.photo[0]} alt="" />
+            </Link>
+            </div>
+              <h2 className="font-bold text-gray-700 text-[22px] leading-7 mb-1 mx-auto">{purchase.title}</h2>
+              <p className="text-[17px] font-bold text-[#0FB478] mx-auto">Quantity: {purchase.quantity} tickets</p>
+            </div>
+          </div>
+        ))}
+        
+
+    </div>
     );
 }
 

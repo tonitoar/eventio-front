@@ -5,7 +5,8 @@ export default function PurchaseWidget({ event }) {
 
   const { id } = useParams();
   
-  const [counter, setCounter] = useState(1);
+  const [counter, setCounter] = useState(0);
+  const [redirect, setRedirect] = useState(""); 
 
   const handleIncrement = () => {
     setCounter(counter + 1);
@@ -36,10 +37,12 @@ export default function PurchaseWidget({ event }) {
       // Handle the response from the server here
       if (response.ok) {
         console.log("Form submitted successfully");
+        alert("Purchase completed!")
         // Reset the counter if needed
         /* setCounter(0); */
       } else {
         console.log("Form submission failed");
+        setRedirect()
       }
     } catch (error) {
       console.log("An error occurred during form submission:", error);
@@ -55,15 +58,17 @@ export default function PurchaseWidget({ event }) {
         <div className="my-4 bg-lime-200 px-3 py-4 rounded-2xl">
           <label>Quantity:</label>
           <div className="">
-            <input type="number" value={counter} className="" readOnly />
+            <input type="number" value={counter} className="" />
             <div className="flex justify-center gap-8 mt-2">
               <button
+              type="button"
                 className="px-2 py-1 bg-gray-300 rounded-full w-8 h-8"
                 onClick={handleDecrement}
               >
                 -
               </button>
               <button
+              type="button"
                 className="px-2 py-1 bg-gray-300 rounded-full w-8 h-8 text-auto"
                 onClick={handleIncrement}
               >
