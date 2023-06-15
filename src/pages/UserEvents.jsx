@@ -44,7 +44,7 @@ export default function UserEvents () {
             <div className="grow-0 shrink">
             <div>
             <Link to={"/event/"+ purchase.event}>
-              <img className="rounded object-cover aspect-square mx-auto mb-2" src={purchase.photo[0]} alt="" />
+              <img className="rounded object-cover aspect-square mx-auto mb-2" src={purchase.photo} alt="" />
             </Link>
             </div>
               <h2 className="font-bold text-gray-700 text-[22px] leading-7 mb-1 mx-auto">{purchase.title}</h2>
